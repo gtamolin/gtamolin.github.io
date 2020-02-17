@@ -1,0 +1,207 @@
+<html>
+<head>
+<title>Samples</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<style>
+body {
+    color: #a2a2a2;
+    font-family: Roboto, sans-serif;
+	font-weight: 300;
+   	color: #333;
+    line-height: 1.75em;
+	margin:0;
+}
+
+.b-page {
+	margin:0 auto;
+	max-width:1200px;
+	display:flex;
+	flex-direction: row;
+}
+
+.b-page-column_left {
+	padding:0 9px;
+	min-height:210px;
+	flex: 0 0 27%;
+	order: 1;
+	background: linear-gradient(to bottom,  #5a6873 20%, #796f66 50%, #25201d 80%);
+	box-sizing:border-box;
+	display:flex;  
+	justify-content: center;
+}
+
+.b-page-column_right {
+	flex: 1 1 auto;
+	order: 2;
+}
+
+@media screen and (max-width: 880px) {
+	.b-page {
+		flex-direction: column;
+	}
+
+	.b-page-column_left {
+		order: 2;
+		background: linear-gradient(to bottom,  #5a6873 20%, #796f66 80%);
+		margin: 0 5%;
+	}
+
+	.b-page-column_right {
+		order: 1;
+	}
+}
+
+.b-header_main {
+	padding-left: 6.6%;
+	font-weight:300;
+	font-size: 2em;
+	margin-bottom: 0.9em;
+}
+
+.b-header_secondary {
+	padding-top: 3.5%;
+	font-weight:300;
+	font-size: 1.3em;
+	color: #ffffff;
+	padding-left:36px;
+	line-height: 1.35em;
+}
+
+.b-previews {
+	min-height:90px;
+	display:grid;
+	grid-template-columns: 40% 40%;
+	justify-content: space-evenly;
+}
+
+.b-preview__img {
+	width:100%;
+	border-radius: 5px;
+}
+
+.b-preview__description {
+	padding: 0 5%;
+	text-align:left; 
+	margin:12px 0 29px 0;
+	line-height:1.2em;
+	color: #000;
+}
+
+@media screen and (max-width: 530px) {
+	.b-previews {
+		grid-template-columns: 100%;
+	}
+
+	.b-preview {
+		text-align:center; 
+	}
+
+	.b-preview__img {
+		width:90%;
+	}
+	
+	.b-preview__description {
+		padding: 0 5%;
+		text-align:left; 
+	}
+	
+	.b-header_main {
+		padding-left: 5%;
+	}
+}
+
+.b-contacts-name {
+	color:#fff;
+	padding-left:36px;
+	font-size: 1.05em;
+}
+
+.icon {
+    text-decoration: none;
+    line-height: 1.7em;
+  	font-size:1.5em;
+	color:rgba(255, 255, 255, 0.7);
+	transition: color 0.2s ease-in-out;
+}
+
+.icon:before {
+    -webkit-font-smoothing: antialiased;
+    font-family: FontAwesome;
+}
+
+.fa-envelope-o:before {
+    content: "\f003";
+}
+
+.icon:hover {
+	color: #49bf9d;
+	text-decoration: none;
+}
+
+.b-contacts-address {
+	font-size: 0.7em;
+	color:#fff;
+	padding-left:12px;
+	vertical-align:3px;
+}
+
+/* cyrillic */
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fABc4EsA.woff2) format('woff2');
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+</head>
+<body>
+<div class="b-page">
+	
+	<div class="b-page-column_left">
+		<div>
+			<h1 class="b-header_secondary">Контакты</h1>
+			<div class="b-contacts-name">Геннадий</div>
+			<a href="mailto:gtmailbox1@gmail.com" class="icon fa-envelope-o"><span class="b-contacts-address">gtmailbox1@gmail.com</span></a>
+		</div>
+	</div>
+		
+	<div class="b-page-column_right">
+		<h1 class="b-header_main">Примеры работ</h1>
+		<div class="b-previews">
+ 			<div  class="b-preview" >
+				<a href="http://www.game-sokoban.com/index.php?mode=best_chart&lid=361" target="_blank"><img src="img/screen1.jpg" class="b-preview__img" ></a>
+				<div class="b-preview__description">Показ статистических данных с помощью библиотеки D3.js</div>
+			</div>
+	
+			<div class="b-preview" >
+				<a href="http://www.game-sokoban.com/index.php?mode=worldmap" target="_blank"><img src="img/screen2.jpg" class="b-preview__img"></a>
+				<div class="b-preview__description">Отображение географических данных с помощью векторной графики.</div>
+			</div>
+	
+			<div class="b-preview" >
+				<a href="http://www.game-sokoban.com/index.php?mode=level&lid=200" target="_blank"><img src="img/screen3.jpg" class="b-preview__img"></a>
+				<div class="b-preview__description">Анимация с ипользованием Canvas.</div>
+			</div>
+	
+			<div class="b-preview" >
+				<a href="http://lite.game-sokoban.com/level/56" target="_blank"><img src="img/screen4.jpg" class="b-preview__img"></a>
+				<div class="b-preview__description">SPA приложение  на основе Vue.js</div>
+			</div>
+		</div>
+	</div>
+</div>
+ 
+</body>
+</html>
