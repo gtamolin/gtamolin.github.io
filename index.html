@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Samples</title>
+<title>Примеры</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 <style>
 body {
 	font-family: Roboto, sans-serif;
 	font-weight: 300;
-	color: #333;
+	color: #222;
 	line-height: 1.75em;
 	margin:0;
 }
@@ -26,6 +27,25 @@ p {
 	margin:0;
 }
 
+input {
+   font-size: 1rem;
+   font-family: Roboto, sans-serif;
+   color:#000;
+   width:100%;
+}
+
+input[type="submit"] {
+   font-size: 1rem;
+   color:#111;
+   font-family: Roboto, sans-serif;
+}
+
+textarea {
+	font-size: 1rem;
+	font-family: Roboto, sans-serif;
+	color:#000;
+}
+
 @font-face {
 	font-family: 'Roboto';
 	font-style: normal;
@@ -40,6 +60,7 @@ p {
 	font-weight: 300;
 	src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	font-display: swap;
 }
 
 @font-face{
@@ -58,26 +79,25 @@ p {
 }
 
 .b-section-personal {
-	padding:0 1em;
 	min-height:210px;
 	flex: 0 0 27%;
 	order: 1;
-	background: linear-gradient(to bottom,  #5a6873 20%, #796f66 50%, #25201d 80%);
+	background: linear-gradient(to bottom,  #5a6873 20%, #796f66 50%, #45404d 90%);
+	
 	box-sizing:border-box;
-}
-
-.b-about {
-	width:min-content;
-	display:flex; 
-	flex-direction: column;
-	margin: 0 auto;
+	
+	display:grid;
+	grid-template-columns: 100%;
+	grid-template-rows: auto 1fr auto;
+	
 	color:#fff;
-	padding-left:36px;
 }
 
 .b-about__contacts {
-	position: relative;
+	padding:0 1em 0 3.3em;
 	padding-right: 2em;
+	grid-column: 1; 
+	grid-row: 1;
 }
 
 .b-about__contacts__name {
@@ -85,12 +105,18 @@ p {
 	font-size: 1.2rem;
 }
 
+.b-about__contacts__email {
+	position: relative;
+}
+
 .b-about__contacts__email:hover span {
 	color: #49bf9d;
 }
 
 .b-about__skills {
-	padding-top: 1.6rem;
+	padding:1.6rem 1rem 0 3.3rem;
+	grid-column: 1; 
+	grid-row: 2;
 }
 
 .b-section-previews {
@@ -109,7 +135,13 @@ p {
 .b-previews {
 	display:grid;
 	grid-template-columns: 40% 40%;
+	grid-template-rows: auto auto;
 	justify-content: space-evenly;
+}
+
+.b-preview {
+	border: 0px solid red;
+	min-height: calc(850px * 0.73 * 0.4);
 }
 
 .b-preview__img {
@@ -166,19 +198,16 @@ p {
 
 	.b-section-personal {
 		order: 2;
-		padding: 0 1rem 1rem 1rem;
-		background: linear-gradient(to bottom,  #5a6873 20%, #796f66 80%);
 		margin: 0 6.6%;
 		flex-basis:auto; 
+		grid-template-columns: min-content 1fr;
+		grid-template-rows: auto auto;
+		background: transparent;
 	}
 	
-	.b-about {
-		width:auto;
-		flex-direction: row;
-	}
-		
 	.b-about__contacts {
-		flex: 0 0 auto;
+		padding-right: 27px;
+		background: linear-gradient(to bottom,  #5a6873 10%, #796f66 100%);
 	}
 	
 	.b-about__contacts__name {
@@ -187,7 +216,10 @@ p {
 	}
 
 	.b-about__skills {
-		flex: 1 0 0;
+		padding: 1.2rem 2rem 2.1rem 0.5rem;
+		background: linear-gradient(to bottom,  #5a6873 10%, #796f66 100%);
+		grid-column: 2; 
+		grid-row: 1; 
 	}
 		
 	ul {
@@ -204,6 +236,10 @@ p {
 		content: ", ";
 	}
 	
+	li:last-child:after {
+		content: ".";
+	}
+	
 	.b-section-previews {
 		order: 1;
 	}
@@ -217,21 +253,27 @@ p {
 	}
 	
 	.b-section-personal {
-		padding: 0 2rem 2rem 2rem;
-		flex-direction: column;
 		margin: 0 5%;
+		grid-template-columns: 1fr;
+		grid-template-rows: min-content min-content min-content min-content;
 	}
-
-	.b-about {
-		width:75%;
-		flex-direction: column;
+		
+	.b-about__contacts {
+		background: linear-gradient(to bottom,  #5a6873 10%, #796f66 100%);
 	}
+	
 	.b-about__skills {
-		flex: 1 0 auto;
+		background: transparent;
+		background-color: #796f66;
+		padding-left: 3.3em;
+		padding-bottom: 1.2em;
+		grid-column: 1; 
+		grid-row: 2; 
 	}
 		
 	.b-previews {
 		grid-template-columns: 100%;
+		grid-template-rows: auto auto auto auto;
 	}
 
 	.b-preview {
@@ -240,6 +282,7 @@ p {
 
 	.b-preview__img {
 		width:90%;
+		max-height: 100%;
 	}
 	
 	.b-preview__description {
@@ -251,14 +294,247 @@ p {
 		padding-left: 5%;
 	}
 }
+
+.b-message {
+	padding:0 1.5em 6em 1.5em;
+	margin:auto 0 0 0;
+	grid-column: 1; 
+	grid-row: 3;
+}
+
+.b-message__header {
+	font-size:1.2rem;
+	font-weight:normal; 
+	text-align:center;
+	margin: 1.2em -1.2em 1.2em -1.2em; 
+}
+	
+.b-visitor-form {
+	width: 100%;
+	min-width:0;
+	margin: 0;
+}
+	
+.b-visitor-form__item {
+	display:flex; 
+	flex-direction:row; 
+	flex-wrap:wrap; 
+}
+	
+.b-visitor-name-label {
+	display:none;
+}
+.b-visitor-name {
+	flex: 0 0 100%;
+	border:1px solid #111; 
+	padding:5px;
+	box-sizing:border-box;
+	background-color: #ccc;
+}
+
+.b-visitor-name:focus::-webkit-input-placeholder  {
+	color:#ccc;
+}
+.b-visitor-name:focus::placeholder  {
+	color:#ccc;
+}
+
+.b-visitor-email-label {
+	display:none;
+}
+
+.b-visitor-email {
+	flex: 0 0 100%;
+	margin-top:12px;
+	border:1px solid #111;  
+	padding:5px;
+	box-sizing:border-box;
+	background-color: #ccc;
+}
+
+.b-visitor-email:focus::-webkit-input-placeholder  {
+	color:#ccc;
+}
+.b-visitor-email:focus::placeholder  {
+	color:#ccc;
+}
+
+.b-visitor-text-label {
+	display:none;
+}
+.b-visitor-text {
+	flex: 0 0 100%;
+	margin-top:12px;
+	border: 1px solid #111;
+	width:100%;
+	min-width:0;
+	min-height:5em;
+	padding:5px;
+	box-sizing:border-box;
+	background-color: #ccc;
+	resize: vertical;
+}
+
+.b-visitor-text:focus::-webkit-input-placeholder  {
+	color:#ccc;
+}
+
+.b-visitor-text:focus::placeholder  {
+	color:#ccc;
+}
+
+.b-visitor-text:invalid {
+	box-shadow: none;
+}	
+
+.b-visitor-text:focus:invalid  {
+	box-shadow: 0 0 5px red;
+}	
+
+.b-visitor-form__submit {
+	width: 50%;
+	margin: 27px 25% 12px 25%;
+	border: 1px solid #111;
+	cursor: pointer;
+	padding: 4px 25px;
+}
+
+.b-visitor-form__submit:hover {
+	background: linear-gradient(to bottom,  #7a8893 10%, #797f76 100%);
+	color:#fff;
+}	
+
+.b-visitor-form__note {
+	opacity:0;
+	margin-top: 17px;
+	text-align:center;
+	color: #55cc55;
+}
+
+::-webkit-input-placeholder {color: #000; font-style:italic;}
+::-moz-placeholder          {color: #000; font-style:italic;}
+::-ms-input-placeholder      {color: #000; font-style:italic;}
+	
+@media screen and (max-width: 880px) {
+	
+	.b-message {
+		color: #111;
+		grid-column: 1 / span 2; 
+		grid-row: 2;
+		padding:0 2em 2.3em 2em;
+	}
+	
+	.b-visitor-form {
+		width: 85%;	
+		margin:0 auto 0 auto;
+	}
+
+	.b-visitor-name-label {
+		display:block;
+		flex: 0 0 23%;
+	}
+	
+	.b-visitor-name {
+		flex: 0 0 77%;
+		border:1px solid #333;
+		padding:5px;
+		box-sizing:border-box;
+		min-width:0;
+	}
+
+	.b-visitor-email-label {
+		display:block;
+		flex: 0 0 23%;
+		margin-top:12px;
+	}
+	
+	.b-visitor-email {
+		flex: 0 0 77%;
+		margin-top:12px;
+		border:1px solid #333;
+		padding:5px;
+		box-sizing:border-box;
+		min-width:0;
+	}
+
+	.b-visitor-text-label {
+		display:block;
+		flex: 0 0 23%;
+		margin-top:12px;
+	}
+	
+	.b-visitor-text {
+		flex: 0 1 77%;
+		width:77%;
+		margin-top:12px;
+		border:1px solid #333;
+		padding:5px;
+		box-sizing:border-box;
+		min-width:0;
+	}
+	
+	.b-visitor-form__note {
+		color: #119911;
+	}
+	
+	::-webkit-input-placeholder {color: transparent}
+	::-moz-placeholder          {color: transparent}
+	::-ms-input-placeholder      {color: transparent}
+}
+
+@media screen and (max-width: 530px) {
+	
+	.b-message {
+		background-color: #fff;
+		grid-column: 1; 
+		grid-row: 3;
+		padding-bottom: 3em;
+	}
+	
+	.b-visitor-form {
+		width: 100%;	
+		margin:0 auto 0 auto;
+	}
+	
+	.b-visitor-name-label {
+		display:none;
+	}
+	.b-visitor-name {
+		flex: 0 0 90%;
+		margin-left:auto;
+		margin-right:auto;
+	}
+
+	.b-visitor-email-label {
+		display:none;
+	}
+	.b-visitor-email {
+		flex: 0 0 90%;
+		margin-left:auto;
+		margin-right:auto;
+	}
+
+	.b-visitor-text-label {
+		display:none;
+	}
+	
+	.b-visitor-text {
+		flex: 0 0 90%;
+		width:90%;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	
+	::-webkit-input-placeholder {color: #000}
+	::-moz-placeholder          {color: #000}
+	::-ms-input-placeholder      {color: #000}
+}
 </style>
 </head>
 <body>
 <div class="b-page">
 	
 	<section class="b-section-personal">
-		
-		<div class="b-about">
 		
 		<div class="b-about__contacts">
 				
@@ -279,7 +555,33 @@ p {
 			Опыт интеграции дизайна с CMS (Wordpress и др.) 
 			
 		</div>
+				
+		<div class="b-message">
+						
+			<h3 class="b-message__header" >Отправить сообщение</h3>
+			
+			<form class="b-visitor-form" id="visitor-form">
+						
+			<div class="b-visitor-form__item">
+				<label class="b-visitor-name-label" for="visitor_name" >имя</label>
+				<input type="text" id="visitor_name" class="b-visitor-name" placeholder="имя" maxlength="128" ></input>
+			</div>
 		
+			<div class="b-visitor-form__item">
+				<label class="b-visitor-email-label" for="visitor_email" >email</label>
+				<input type="email" id="visitor_email" class="b-visitor-email" placeholder="email" maxlength="128"></input>
+			</div>
+			
+			<div class="b-visitor-form__item">
+				<label  class="b-visitor-text-label" for="visitor_message" >текст</label>
+				<textarea required id="visitor_message" class="b-visitor-text"  rows="5" placeholder="текст" minlength="2" maxlength="1000" ></textarea>
+			</div>
+			
+			<input class="b-visitor-form__submit" type="submit" id="message_send"  value="Отправить"></input>
+			
+			</form>
+		
+			<div id="sending_note" class="b-visitor-form__note" >Сообщение отправлено!</div>
 		</div>
 	</section>
 		
@@ -288,26 +590,117 @@ p {
 		<div class="b-previews">
  			
 			<article  class="b-preview">
-				<a href="http://www.game-sokoban.com/index.php?mode=best_chart&lid=361" target="_blank"><img src="img/screen1.jpg" class="b-preview__img" alt="d3.js">
+				<a href="http://www.game-sokoban.com/index.php?mode=best_chart&lid=361" target="_blank"><img src="img/screen1.jpg" class="b-preview__img" alt="d3.js"  width="352" >
 				<div class="b-preview__description">Показ статистических данных с помощью библиотеки D3.js</div>
 				</a>
 				
 			</article>
 	
 			<article class="b-preview">
-				<a href="http://www.game-sokoban.com/index.php?mode=worldmap" target="_blank"><img src="img/screen2.jpg" class="b-preview__img"  alt="geostatistics"><div class="b-preview__description">Отображение географических данных с помощью векторной графики.</div></a>
+				<a href="http://www.game-sokoban.com/index.php?mode=worldmap" target="_blank"><img src="img/screen2.jpg" class="b-preview__img"  alt="geostatistics"  width="352" ><div class="b-preview__description">Отображение географических данных с помощью векторной графики.</div></a>
 			</article>
 	
 			<article class="b-preview">
-				<a href="http://www.game-sokoban.com/index.php?mode=level&lid=200" target="_blank"><img src="img/screen3.jpg" class="b-preview__img"  alt="canvas animation"><div class="b-preview__description">Анимация с ипользованием Canvas.</div></a>
+				<a href="http://www.game-sokoban.com/index.php?mode=level&lid=200" target="_blank"><img src="img/screen3.jpg" class="b-preview__img"  alt="canvas animation"  width="352" ><div class="b-preview__description b-last">Анимация с ипользованием Canvas.</div></a>
 			</article>
 	
 			<article class="b-preview">
-				<a href="http://lite.game-sokoban.com/level/56" target="_blank"><img src="img/screen4.jpg" class="b-preview__img"  alt="SPA sample"><div class="b-preview__description">SPA приложение  на основе Vue.js</div></a>
+				<a href="http://lite.game-sokoban.com/level/56" target="_blank"><img src="img/screen4.jpg" class="b-preview__img" alt="SPA sample"  width="352"><div class="b-preview__description b-last">SPA приложение на основе Vue.js</div></a>
 			</article>
 		
 		</div>
 	</section>
 </div>
+
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-database.js"></script>
+<script>
+	
+	function init_form(){
+				
+		const vname = document.getElementById("visitor_name");
+		
+		vname.addEventListener('input', function(){
+			 document.getElementById("sending_note").style.opacity = 0;
+		});		
+				
+		const vmessage = document.getElementById("visitor_message");
+		
+		vmessage.addEventListener('input', set_custom_message_error);
+		
+		set_custom_message_error();
+			
+		const vemail = document.getElementById("visitor_email");
+		
+		vemail.addEventListener('input', set_custom_email_error);
+		
+		document.getElementById('visitor-form').addEventListener('submit', send_message);
+		
+		function set_custom_message_error(){
+			
+			document.getElementById("sending_note").style.opacity = 0;
+				
+			if (vmessage.validity.tooShort) {
+				vmessage.setCustomValidity("Введите cообщение (не менее 2-х символов)");
+			} 
+			else if(vmessage.validity.valueMissing){
+				vmessage.setCustomValidity("Введите cообщение!");
+			}
+			else if(vmessage.validity.tooLong){
+				vmessage.setCustomValidity("Введите cообщение не более 1000 символов");
+			}
+			else{
+				vmessage.setCustomValidity("");
+			}
+		}	
+		
+		function set_custom_email_error(){
+			
+			document.getElementById("sending_note").style.opacity = 0;	
+			
+			if (vemail.validity.typeMismatch) {
+				vemail.setCustomValidity("Введите корректный адрес!");
+			}
+			else{
+				vemail.setCustomValidity("");
+			}			
+		}
+	}
+		
+	function init_firebase(){
+	
+		var firebaseConfig = {
+			apiKey: "AIzaSyDqpYk_isvRlddGMCcUAeggRhcO_Botkno",
+			databaseURL: "https://gtpersonal1-c46e7.firebaseio.com",
+			authDomain: "gtpersonal1-c46e7.firebaseapp.com",
+		};
+  		firebase.initializeApp(firebaseConfig);
+	}
+	
+	function send_message(evt){
+		
+		evt.preventDefault();
+			
+		var rslt = firebase.database().ref('messages').push(
+    		{
+				name: document.getElementById("visitor_name").value,
+				email: document.getElementById("visitor_email").value,
+				message: document.getElementById("visitor_message").value,
+				received: firebase.database.ServerValue.TIMESTAMP
+			}
+		);
+		
+		rslt.then(
+			function(){
+				 document.getElementById("sending_note").style.opacity = 1;
+			}
+		
+		);
+	}
+	
+	init_form();	
+	init_firebase();
+
+</script>
 </body>
 </html>
